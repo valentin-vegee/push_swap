@@ -9,7 +9,13 @@ SRC = src/main.c \
       src/parse/parse_utils.c \
       src/parse/stack_parse_utils.c \
       src/parse/ft_split.c \
-      src/parse/ft_strcmp.c
+      src/parse/ft_strcmp.c \
+      src/ops/op_push.c \
+      src/ops/op_revrotate.c \
+      src/ops/op_rotate.c \
+      src/ops/op_swap.c \
+      src/stack/utils_2.c \
+      src/stack/utils.c
 
 OBJ = $(SRC:.c=.o)
 
