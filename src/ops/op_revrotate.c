@@ -13,35 +13,45 @@ void    reverse_rotate_stack(t_stack *stack)
     last_node->next = stack->top;
     stack->top = last_node;
 }
-void    rra(t_stack *a)
+void    rra(t_push_swap *ps)
 {
-    if (!a || !a->top || !a->top->next)
+    if (!ps || !ps->a.top || !ps->a.top->next)
         return;
-    reverse_rotate_stack(a);
+    reverse_rotate_stack(&ps->a);
     ft_printf("rra\n");
+    ps->bench.rra++;
+    ps->bench.total_ops++;
 }
-void    rrb(t_stack *b)
+void    rrb(t_push_swap *ps)
 {
-    if (!b || !b->top || !b->top->next)
+    if (!ps || !ps->b.top || !ps->b.top->next)
         return;
-    reverse_rotate_stack(b);
+    reverse_rotate_stack(&ps->b);
     ft_printf("rrb\n");
+    ps->bench.rrb++;
+    ps->bench.total_ops++;
 }
-void    rrr(t_stack *a, t_stack *b)
+void    rrr(t_push_swap *ps)
 {
     int did;
 
     did = 0;
-    if (a && a->top && a->top->next)
+    if(!ps)
+        return;
+    if (ps->a.top && ps->a.top->next)
         {
-            reverse_rotate_stack(a);
+            reverse_rotate_stack(&ps->a);
             did++;
         }
-    if (b && b->top && b->top->next)
+    if (ps->b.top && ps->b.top->next)
     {
-        reverse_rotate_stack(b);
+        reverse_rotate_stack(&ps->b);
         did++;
     }
     if (did > 0)
-        ft_printf("rrr\n");
+        {
+            ft_printf("rrr\n");
+            ps->bench.rrr++;
+            ps->bench.total_ops++;
+        }
 }

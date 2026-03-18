@@ -53,3 +53,10 @@ double compute_disorder(t_stack *stack)
 	}
 	return(mistakes / total_pairs);
 }
+
+void	print_bench(t_push_swap *ps)
+{
+	if(!ps || ps->bench.bool_bench == 0)
+		return;
+	
+}

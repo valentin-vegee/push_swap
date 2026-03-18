@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 void    rotate_stack(t_stack *stack)
 {
     t_node *element;
@@ -9,35 +11,45 @@ void    rotate_stack(t_stack *stack)
     last(stack)->next = element;
     element->next = NULL;
 }
-void    ra(t_stack *a)
+void    ra(t_push_swap *ps)
 {
-    if (!a || !a->top || !a->top->next)
+    if (!ps || !ps->a.top || !ps->a.top->next)
         return;
-    rotate_stack(a);
+    rotate_stack(&ps->a);
     ft_printf("ra\n");
+    ps->bench.ra++;
+    ps->bench.total_ops++;
 }
-void    rb(t_stack *b)
+void    rb(t_push_swap *ps)
 {
-    if (!b || !b->top || !b->top->next)
+    if (!ps || !ps->b.top || !ps->b.top->next)
         return;
-    rotate_stack(b);
+    rotate_stack(&ps->b);
     ft_printf("rb\n");
+    ps->bench.rb++;
+    ps->bench.total_ops++;
 }
-void    rr(t_stack *a, t_stack *b)
+void    rr(t_push_swap *ps)
 {
     int rotated;
 
     rotated = 0;
-    if (a && a->top && a->top->next)
+    if(!ps)
+        return;
+    if (ps->a.top && ps->a.top->next)
     {
-            rotate_stack(a);
+            rotate_stack(&ps->a);
             rotated++;
     }
-    if (b && b->top && b->top->next)
+    if (ps->b.top && ps->b.top->next)
     {
-        rotate_stack(b);
+        rotate_stack(&ps->b);
         rotated++;
     }
     if (rotated > 0)
-        ft_printf("rr\n");
+        {
+            ft_printf("rr\n");
+            ps->bench.rr++;
+            ps->bench.total_ops++;
+        }
 }

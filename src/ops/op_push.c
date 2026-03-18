@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 void    push_stack(t_stack *dest,t_stack *src)
 {
     t_node  *element;
@@ -11,17 +13,21 @@ void    push_stack(t_stack *dest,t_stack *src)
     src->size--;
     dest->size++;
 }
-void    pa(t_stack *a, t_stack *b)
+void    pa(t_push_swap *ps)
 {
-    if (!b || !b->top)
+    if (!ps || !ps->b.top)
         return;
-    push_stack(a , b);
+    push_stack(&ps->a , &ps->b);
     ft_printf("pa\n");
+    ps->bench.pa++;
+    ps->bench.total_ops++;
 }
-void    pb(t_stack *b, t_stack *a)
+void    pb(t_push_swap *ps)
 {
-    if(!a || !a->top)
+    if(!ps || !ps->a.top)
         return;
-    push_stack(b, a);
+    push_stack(&ps->b, &ps->a);
     ft_printf("pb\n");
+    ps->bench.pb++;
+    ps->bench.total_ops++;
 }

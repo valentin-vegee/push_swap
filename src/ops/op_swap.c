@@ -1,3 +1,5 @@
+#include "push_swap.h"
+
 void    swap_stack(t_stack *stack)
 {
     t_node  *first;
@@ -8,40 +10,50 @@ void    swap_stack(t_stack *stack)
         return;
     first = stack->top;
     second = stack->top->next;
-    third = stack->top->next->next;
+    third = second->next;
     stack->top = second;
     stack->top->next = first;
     first->next = third;
 }
-void    sa(t_stack *stack)
+void    sa(t_push_swap *ps)
 {
-    if(!stack || !stack->top || !stack->top->next)
+    if(!ps || !ps->a.top || !ps->a.top->next)
         return;
-    swap_stack(stack);
+    swap_stack(&ps->a);
     ft_printf("sa\n");
+    ps->bench.sa++;
+    ps->bench.total_ops++;
 }
-void    sb(t_stack *stack)
+void    sb(t_push_swap *ps)
 {
-    if(!stack || !stack->top || !stack->top->next)
+    if(!ps || !ps->b.top || !ps->b.top->next)
         return;
-    swap_stack(stack);
+    swap_stack(&ps->b);
     ft_printf("sb\n");
+    ps->bench.sb++;
+    ps->bench.total_ops++;
 }
-void    ss(t_stack *stack_a, t_stack *stack_b)
+void    ss(t_push_swap *ps)
 {
     int swapped;
 
     swapped = 0;
-    if(stack_a && stack_a->top && stack_a->top->next)
+    if(!ps)
+        return;
+    if(ps->a.top && ps->a.top->next)
             {
-                swap_stack(stack_a);
+                swap_stack(&ps->a);
                 swapped++;
             }
-    if(stack_b && stack_b->top && stack_b->top->next)
+    if(ps->b.top && ps->b.top->next)
         {
-            swap_stack(stack_b);
+            swap_stack(&ps->b);
             swapped++;
         }
     if(swapped > 0)
-        ft_printf("ss\n");
+        {
+            ft_printf("ss\n");
+            ps->bench.ss++;
+            ps->bench.total_ops++;
+        }
 }
