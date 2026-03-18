@@ -52,6 +52,7 @@ void	clear_stack(t_stack *stack);
 t_node	*last(t_stack *stack);
 t_node	*before_last(t_stack *stack);
 t_node	*get_by_pos(t_stack *stack, int position);
+void	assign_index(t_stack *stack);
 
 /* UTILS */
 int		is_sorted(t_stack *stack);
