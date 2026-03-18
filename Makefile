@@ -19,7 +19,9 @@ SRC = src/main.c \
 	src/ops/op_swap.c \
 	src/stack/utils_2.c \
 	src/stack/utils.c \
-	bench/bench.c
+	src/bench/bench_print.c \
+	src/bench/bench_utils.c \
+	src/init/init.c
 
 OBJ = $(SRC:.c=.o)
 

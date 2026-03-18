@@ -70,8 +70,8 @@ void	clear_stack(t_stack *stack);
 char	**ft_split(char const *s, char c);
 int		ft_strcmp(const char *s1, const char *s2);
 
-int	is_sorted(t_stack *stack);
-double compute_disorder(t_stack *stack);
+int		is_sorted(t_stack *stack);
+double 	compute_disorder(t_stack *stack);
 
 void    reverse_rotate_stack(t_stack *stack);
 void    rra(t_push_swap *ps);
@@ -92,5 +92,18 @@ void    ss(t_push_swap *ps);
 t_node	*last(t_stack *stack);
 t_node	*before_last(t_stack *stack);
 t_node	*get_by_pos(t_stack *stack, int position);
+
+void    putnbr_fd(int n, int fd);
+void    putstr_fd(char *str, int fd);
+void    print_bench(t_push_swap *ps);
+void    print_strategy_info(t_push_swap *ps);
+void    print_ops(t_bench *bench);
+void    print_ops_push_swap(t_bench *bench);
+void    print_ops_rotate(t_bench *bench);
+void    print_disorder(t_push_swap *ps);
+char    *strategy_name(t_strategy strategy);
+char    *strategy_complexity(t_strategy strategy);
+void    init_bench(t_bench *bench);
+void    init_push_swap(t_push_swap *ps);
 
 #endif
