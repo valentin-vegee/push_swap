@@ -1,3 +1,4 @@
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
@@ -5,6 +6,7 @@
 # include <unistd.h>
 # include <limits.h>
 # include "ft_printf.h"
+# include <stdio.h>
 
 typedef struct s_node
 {
@@ -54,8 +56,7 @@ typedef struct s_push_swap
 	t_bench		bench;
 }	t_push_swap;
 
-
-/* parse */
+/* PARSE */
 int		parse_input(int argc, char **argv, t_push_swap *ps);
 int		is_valid_number(char *str);
 long	ft_atol(const char *str);
@@ -64,38 +65,42 @@ char	**ft_split(char const *s, char c);
 int		ft_strcmp(const char *s1, const char *s2);
 void	free_split(char **tab);
 
-/* stack */
+/* STACK */
 t_node	*node_new(int value);
 int		stack_add_back(t_stack *stack, int value);
 void	clear_stack(t_stack *stack);
 t_node	*last(t_stack *stack);
 t_node	*before_last(t_stack *stack);
 t_node	*get_by_pos(t_stack *stack, int position);
+void	assign_index(t_stack *stack);
 
-/* utils */
+/* UTILS */
 int		is_sorted(t_stack *stack);
-double 	compute_disorder(t_stack *stack);
+double	compute_disorder(t_stack *stack);
 void    putnbr_fd(int n, int fd);
 void    putstr_fd(char *str, int fd);
 
-/* operations */
-void    reverse_rotate_stack(t_stack *stack);
-void    rra(t_push_swap *ps);
-void    rrb(t_push_swap *ps);
-void    rrr(t_push_swap *ps);
-void    rotate_stack(t_stack *stack);
-void    ra(t_push_swap *ps);
-void    rb(t_push_swap *ps);
-void    rr(t_push_swap *ps);
-void    push_stack(t_stack *dest,t_stack *src);
-void    pa(t_push_swap *ps);
-void    pb(t_push_swap *ps);
-void    swap_stack(t_stack *stack);
-void    sa(t_push_swap *ps);
-void    sb(t_push_swap *ps);
-void    ss(t_push_swap *ps);
+/* OPERATIONS */
+void	swap_stack(t_stack *stack);
+void	sa(t_stack *stack);
+void	sb(t_stack *stack);
+void	ss(t_stack *stack_a, t_stack *stack_b);
 
+void	push_stack(t_stack *dest, t_stack *src);
+void	pa(t_stack *a, t_stack *b);
+void	pb(t_stack *b, t_stack *a);
 
+void	rotate_stack(t_stack *stack);
+void	ra(t_stack *a);
+void	rb(t_stack *b);
+void	rr(t_stack *a, t_stack *b);
+
+void	reverse_rotate_stack(t_stack *stack);
+void	rra(t_stack *a);
+void	rrb(t_stack *b);
+void	rrr(t_stack *a, t_stack *b);
+
+/*BENCH*/
 void    print_bench(t_push_swap *ps);
 void    print_strategy_info(t_push_swap *ps);
 void    print_ops(t_bench *bench);
@@ -104,13 +109,19 @@ void    print_ops_rotate(t_bench *bench);
 void    print_disorder(t_push_swap *ps);
 char    *strategy_name(t_strategy strategy);
 char    *strategy_complexity(t_strategy strategy);
+
+/*INIT*/
 void    init_bench(t_bench *bench);
 void    init_push_swap(t_push_swap *ps);
+
+/*LAUNCHER*/
 void    adaptive_sort(t_push_swap *ps);
 void    run_strategy(t_push_swap *ps);
 
+/*ALGOS*/
 void	simple_sort(t_push_swap *ps);
 void	medium_sort(t_push_swap *ps);
 void	complex_sort(t_push_swap *ps);
 
 #endif
+

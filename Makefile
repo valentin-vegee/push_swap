@@ -23,7 +23,8 @@ SRC = src/main.c \
 	src/bench/bench_utils.c \
 	src/init/init.c
 
-OBJ = $(SRC:.c=.o)
+OBJ_DIR = .build
+OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
 
 all: $(NAME)
 
@@ -33,7 +34,8 @@ $(PRINTF):
 $(NAME): $(OBJ) $(PRINTF)
 	$(CC) $(CFLAGS) $(OBJ) $(PRINTF) $(INCLUDES) -o $(NAME)
 
-%.o: %.c include/push_swap.h
+$(OBJ_DIR)/%.o: %.c include/push_swap.h
+	@mkdir -p $(dir $@)
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
 
 clean:
@@ -45,3 +47,5 @@ fclean: clean
 	$(MAKE) -C $(PRINTF_DIR) fclean
 
 re: fclean all
+
+.PHONY: all clean fclean re
