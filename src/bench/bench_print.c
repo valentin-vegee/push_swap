@@ -12,6 +12,8 @@ void    print_strategy_info(t_push_swap *ps)
 }
 void    print_ops(t_bench *bench)
 {
+    if (!bench)
+        return;
     putstr_fd("[bench] total_ops: ", 2);
     putnbr_fd(bench->total_ops, 2);
     write(2, "\n", 1);
@@ -20,6 +22,8 @@ void    print_ops(t_bench *bench)
 }
 void    print_ops_push_swap(t_bench *bench)
 {
+     if (!bench)
+        return;
     putstr_fd("[bench] sa: ", 2);
     putnbr_fd(bench->sa, 2);
     putstr_fd(" sb: ", 2);
@@ -34,6 +38,8 @@ void    print_ops_push_swap(t_bench *bench)
 }
 void    print_ops_rotate(t_bench *bench)
 {
+     if (!bench)
+        return;
     putstr_fd("[bench] ra: ", 2);
     putnbr_fd(bench->ra, 2);
     putstr_fd(" rb: ", 2);

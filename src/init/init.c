@@ -31,3 +31,45 @@ void    init_push_swap(t_push_swap *ps)
     ps->disorder = 0.0;
     init_bench(&ps->bench);
 }
+void    adaptive_sort(t_push_swap *ps)
+{
+    if (!ps)
+        return;
+    if (ps->disorder < 0.2)
+    {
+        ps->bench.executed_strategy = STRAT_SIMPLE;
+        simple_sort(ps);
+    }
+    else if (ps->disorder >= 0.2 && ps->disorder < 0.5)
+    {
+        ps->bench.executed_strategy = STRAT_MEDIUM;
+        medium_sort(ps);
+    }
+    else if (ps->disorder >= 0.5)
+    {
+        ps->bench.executed_strategy = STRAT_COMPLEX;
+        complex_sort(ps);
+    }
+}
+void    run_strategy(t_push_swap *ps)
+{
+    if (!ps)
+        return;
+    if (ps->strategy == STRAT_ADAPTIVE)
+        adaptive_sort(ps);
+    else if (ps->strategy == STRAT_SIMPLE)
+        {
+            ps->bench.executed_strategy = STRAT_SIMPLE;
+            simple_sort(ps);
+        }
+    else if (ps->strategy == STRAT_MEDIUM)
+        {
+            ps->bench.executed_strategy = STRAT_MEDIUM;
+            medium_sort(ps);
+        }
+    else if (ps->strategy == STRAT_COMPLEX)
+        {
+            ps->bench.executed_strategy = STRAT_COMPLEX;
+            complex_sort(ps);
+        }
+}

@@ -7,6 +7,7 @@ int	main(int argc, char **argv)
 	if (argc < 2)
 		return(0);
 	init_push_swap(&ps);
+	parse_input(argc, argv, &ps);
 	if (!parse_input(argc, argv, &ps))
 	{
 		write(2, "Error\n", 6);
@@ -21,7 +22,8 @@ int	main(int argc, char **argv)
 		return(0);
 	}
 	ps.disorder = compute_disorder(&ps.a);
-	// run_strategy(&ps);
+
+	run_strategy(&ps);
 	print_bench(&ps);
 	clear_stack(&ps.a);
 	clear_stack(&ps.b);
