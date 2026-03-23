@@ -19,10 +19,13 @@ SRC = src/main.c \
 	src/ops/op_swap.c \
 	src/stack/stack_access.c \
 	src/stack/stack_analysis.c \
+	src/stack/stack_index.c \
 	src/bench/bench_print.c \
 	src/bench/bench_utils.c \
 	src/init/init.c \
-	src/algo/simple.c
+	src/algo/simple.c \
+	src/algo/medium.c \
+	src/algo/complex.c
 
 OBJ_DIR = .build
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)

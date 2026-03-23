@@ -82,23 +82,23 @@ void    putstr_fd(char *str, int fd);
 
 /* OPERATIONS */
 void	swap_stack(t_stack *stack);
-void	sa(t_stack *stack);
-void	sb(t_stack *stack);
-void	ss(t_stack *stack_a, t_stack *stack_b);
+void	sa(t_push_swap *ps);
+void	sb(t_push_swap *ps);
+void	ss(t_push_swap *ps);
 
 void	push_stack(t_stack *dest, t_stack *src);
-void	pa(t_stack *a, t_stack *b);
-void	pb(t_stack *b, t_stack *a);
+void	pa(t_push_swap *ps);
+void	pb(t_push_swap *ps);
 
 void	rotate_stack(t_stack *stack);
-void	ra(t_stack *a);
-void	rb(t_stack *b);
-void	rr(t_stack *a, t_stack *b);
+void	ra(t_push_swap *ps);
+void	rb(t_push_swap *ps);
+void	rr(t_push_swap *ps);
 
 void	reverse_rotate_stack(t_stack *stack);
-void	rra(t_stack *a);
-void	rrb(t_stack *b);
-void	rrr(t_stack *a, t_stack *b);
+void	rra(t_push_swap *ps);
+void	rrb(t_push_swap *ps);
+void	rrr(t_push_swap *ps);
 
 /*BENCH*/
 void    print_bench(t_push_swap *ps);
@@ -113,6 +113,7 @@ char    *strategy_complexity(t_strategy strategy);
 /*INIT*/
 void    init_bench(t_bench *bench);
 void    init_push_swap(t_push_swap *ps);
+void	assign_index(t_stack *stack);
 
 /*LAUNCHER*/
 void    adaptive_sort(t_push_swap *ps);
