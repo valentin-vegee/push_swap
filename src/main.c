@@ -29,6 +29,7 @@ int	main(int argc, char **argv)
 	clear_stack(&ps.b);
 	
 	return (0);
+}
 
 #include "push_swap.h"
 

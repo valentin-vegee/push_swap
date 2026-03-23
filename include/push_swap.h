@@ -122,6 +122,9 @@ void    run_strategy(t_push_swap *ps);
 void	simple_sort(t_push_swap *ps);
 void	medium_sort(t_push_swap *ps);
 void	complex_sort(t_push_swap *ps);
+int     find_index_pos(t_stack *a, int target_index);
+void    bring_to_top(t_push_swap *ps, int pos);
+void    sort_three(t_push_swap *ps);
 
 #endif
 

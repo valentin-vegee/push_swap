@@ -17,11 +17,12 @@ SRC = src/main.c \
 	src/ops/op_revrotate.c \
 	src/ops/op_rotate.c \
 	src/ops/op_swap.c \
-	src/stack/utils_2.c \
-	src/stack/utils.c \
+	src/stack/stack_access.c \
+	src/stack/stack_analysis.c \
 	src/bench/bench_print.c \
 	src/bench/bench_utils.c \
-	src/init/init.c
+	src/init/init.c \
+	src/algo/simple.c
 
 OBJ_DIR = .build
 OBJ = $(SRC:%.c=$(OBJ_DIR)/%.o)
