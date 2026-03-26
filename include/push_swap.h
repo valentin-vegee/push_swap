@@ -126,6 +126,7 @@ void	complex_sort(t_push_swap *ps);
 int     find_index_pos(t_stack *a, int target_index);
 void    bring_to_top(t_push_swap *ps, int pos);
 void    sort_three(t_push_swap *ps);
+int     get_max_bits(t_stack *stack);
 
 #endif
 

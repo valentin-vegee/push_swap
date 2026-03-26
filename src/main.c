@@ -22,10 +22,7 @@ int	main(int argc, char **argv)
 		return(0);
 	}
 	ps.disorder = compute_disorder(&ps.a);
-	ps.strategy = STRAT_SIMPLE;
-	ps.bench.executed_strategy = STRAT_SIMPLE;
-	ps.bench.bool_bench = 1;
-	simple_sort(&ps);
+	run_strategy(&ps);
 	print_bench(&ps);
 	clear_stack(&ps.a);
 	clear_stack(&ps.b);
