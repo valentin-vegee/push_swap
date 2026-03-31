@@ -25,6 +25,7 @@ SRC = src/main.c \
 	src/init/init.c \
 	src/algo/simple.c \
 	src/algo/medium.c \
+	src/algo/medium_utils.c \
 	src/algo/complex.c
 
 OBJ_DIR = .build

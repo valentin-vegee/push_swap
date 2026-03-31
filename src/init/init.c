@@ -43,7 +43,7 @@ void    adaptive_sort(t_push_swap *ps)
     else if (ps->disorder >= 0.2 && ps->disorder < 0.5)
     {
         ps->bench.executed_strategy = STRAT_MEDIUM;
-        medium_sort(ps);
+        sort_medium(ps);
     }
     else if (ps->disorder >= 0.5)
     {
@@ -65,7 +65,7 @@ void    run_strategy(t_push_swap *ps)
     else if (ps->strategy == STRAT_MEDIUM)
         {
             ps->bench.executed_strategy = STRAT_MEDIUM;
-            medium_sort(ps);
+            sort_medium(ps);
         }
     else if (ps->strategy == STRAT_COMPLEX)
         {

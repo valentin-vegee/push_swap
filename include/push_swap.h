@@ -121,12 +121,15 @@ void    run_strategy(t_push_swap *ps);
 
 /*ALGOS*/
 void	simple_sort(t_push_swap *ps);
-void	medium_sort(t_push_swap *ps);
 void	complex_sort(t_push_swap *ps);
 int     find_index_pos(t_stack *a, int target_index);
 void    bring_to_top(t_push_swap *ps, int pos);
 void    sort_three(t_push_swap *ps);
 int     get_max_bits(t_stack *stack);
+void	sort_medium(t_push_swap *ps);
+int		get_chunk_size(int size);
+void	move_range_to_top(t_push_swap *ps, int max_index);
+void	move_max_to_top(t_push_swap *ps);
 
 #endif
 
