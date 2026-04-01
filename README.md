@@ -413,16 +413,3 @@ Chaque partie intégrée au code a été relue, adaptée, testée et discutée d
 * tutoriels sur les structures de piles et listes chaînées
 
 ---
-
-## Notes finales
-
-Le projet a été pensé pour respecter :
-
-* les contraintes du sujet ;
-* une architecture modulaire ;
-* une séparation claire entre parsing, structures, opérations, algorithmes et bench ;
-* une logique de choix de stratégie pilotée par les flags ou par le désordre initial.
-
-L'objectif principal n'a pas été seulement de trier, mais de trier intelligemment dans le cadre très contraint imposé par `push_swap`.
-
-```
