@@ -205,10 +205,11 @@ Principe :
 
 1. trouver l'index[0]
 2. effectuer le nombre le rotation necessaire pour mettre cet index a la fin de `a`
-3. le pousser dans `b`.
-4. remettre `b` au debut de `a`
-5. recommencer avec l'index[1]
-6. etc... 
+3. le pousser au debut de `b`.
+4. recommencer avec l'index[1] puis [2] etc ...
+5. jusqu'a ce que `a` soit vide.
+6. la liste est maintenant triee a l'envers dans `b`.
+7. on repousse tout dans `a` et la liste est triee.
 
 Justification :
 
