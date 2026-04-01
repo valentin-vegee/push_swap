@@ -129,11 +129,11 @@ Le tri repose uniquement sur les opérations suivantes :
 * `ss` : `sa` et `sb` en même temps
 * `pa` : pousse le premier élément de `b` vers `a`
 * `pb` : pousse le premier élément de `a` vers `b`
-* `ra` : rotation de `a` vers le haut
-* `rb` : rotation de `b` vers le haut
+* `ra` : Le 1er element de `a` devient le dernier element de `a`
+* `rb` : Le 1er element de `b` devient le dernier element de `b`
 * `rr` : `ra` et `rb` en même temps
-* `rra` : rotation inverse de `a`
-* `rrb` : rotation inverse de `b`
+* `rra` : Le dernier element de `a` devient le 1er element de `a`
+* `rrb` : Le dernier element de `b` devient le 1er element de `b` 
 * `rrr` : `rra` et `rrb` en même temps
 
 ---
@@ -203,11 +203,19 @@ Le sujet impose quatre approches : simple, medium, complex et adaptive.
 
 La stratégie simple repose sur une approche basique de tri adaptée à `push_swap`, pensée pour les cas les plus simples ou les piles peu désordonnées.
 
+Principe :
+
+1. trouver l'index[0]
+2. effectuer le nombre le rotation necessaire pour mettre cet index a la fin de `a`
+3. le pousser dans `b`.
+4. remettre `b` au debut de `a`
+5. recommencer avec l'index[1]
+6. etc... 
+
 Justification :
 
-* implémentation lisible ;
 * comportement prévisible ;
-* bonne base pour répondre à l'exigence du sujet sur une stratégie quadratique ;
+* Simple a comprendre ;
 * adaptée aux petites tailles ou aux entrées presque triées.
 
 ### 2. Algorithme medium — `O(n√n)` : tri par chunks
@@ -234,11 +242,12 @@ La stratégie complexe repose sur un radix sort binaire appliqué aux index.
 
 Principe :
 
-1. lire les bits des index du plus faible au plus fort ;
-2. envoyer dans `b` les éléments dont le bit courant vaut `0` ;
-3. faire tourner `a` pour conserver ceux dont le bit vaut `1` ;
+1. lire les bits des index en commencant par le 1er bit ;
+2. si le bit courant vaut `0` l'envoyer dans `b`;
+3. parcourir la liste jusqu'a ce que tout les bits `0` soit dans `b`;
 4. remettre ensuite tous les éléments de `b` dans `a` ;
-5. répéter pour chaque bit.
+5. passer au bit 2.
+6. répéter pour chaque bit. 
 
 Pourquoi ce choix :
 
@@ -364,8 +373,8 @@ Projet réalisé en binôme par :
 
 Répartition générale :
 
-* parsing, structure du projet, intégration, débogage, bench et organisation générale ;
-* implémentation des opérations, calcul du disorder, algorithmes de tri et raccords entre modules.
+* parsing, structure du projet, intégration, débogage, algorithme de tri medium et organisation générale ;
+* Opérations, calcul du disorder, bench, algorithme de tri simple et raccords entre modules.
 
 Cette répartition a évolué pendant le projet au fur et à mesure des besoins, des corrections et des phases de fusion entre les branches.
 
@@ -419,5 +428,3 @@ L'objectif principal n'a pas été seulement de trier, mais de trier intelligemm
 
 ```
 
-Si tu veux, je peux aussi te faire une **version plus courte et plus “propre 42”**, un peu moins détaillée.
-```
