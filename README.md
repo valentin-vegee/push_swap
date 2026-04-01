@@ -1,5 +1,3 @@
-Voici un README prêt à copier dans `README.md` :
-
 *This project has been created as part of the 42 curriculum by tbenavid, vavegee.*
 
 # push_swap
@@ -428,4 +426,3 @@ Le projet a été pensé pour respecter :
 L'objectif principal n'a pas été seulement de trier, mais de trier intelligemment dans le cadre très contraint imposé par `push_swap`.
 
 ```
-
