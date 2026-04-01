@@ -242,12 +242,13 @@ La stratégie complexe repose sur un radix sort binaire appliqué aux index.
 
 Principe :
 
-1. lire les bits des index en commencant par le 1er bit ;
-2. si le bit courant vaut `0` l'envoyer dans `b`;
-3. parcourir la liste jusqu'a ce que tout les bits `0` soit dans `b`;
-4. remettre ensuite tous les éléments de `b` dans `a` ;
-5. passer au bit 2.
-6. répéter pour chaque bit. 
+1. lire la forme binaire des index et les trier bits par bits en binaire ;
+2. commencer par le 1er bits.
+3. si le bit courant vaut `0` l'envoyer dans `b`;
+4. faire tourner la liste jusqu'a ce que tout les bits `0` soit dans `b`;
+5. remettre ensuite tous les éléments de `b` au debut de `a` ;
+6. passer au bit 2.
+7. répéter pour chaque bit.
 
 Pourquoi ce choix :
 
